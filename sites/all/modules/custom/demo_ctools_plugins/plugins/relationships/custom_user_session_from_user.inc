@@ -1,7 +1,7 @@
 <?php
 
 $plugin = array(
-  'title' => t('Custom user session'),
+  'title' => t('Custom user session from User'),
   'keyword' => 'user_session',
   'required context' => new ctools_context_required(t('User'), 'user'),
   'context' => 'demo_ctools_plugins_custom_user_session_context',
