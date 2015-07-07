@@ -1,0 +1,12 @@
+name = Document Search Feature
+core = 7.x
+package = Drupal Cafe
+version = 7.x-0.00
+dependencies[] = ctools
+dependencies[] = doc_search
+dependencies[] = page_manager
+dependencies[] = panels
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_pages][] = document_search
+project path = sites/all/modules/features

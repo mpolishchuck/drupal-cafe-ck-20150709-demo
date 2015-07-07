@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Document Search Feature feature.
+ */
+
+include_once 'document_search_feature.features.inc';
