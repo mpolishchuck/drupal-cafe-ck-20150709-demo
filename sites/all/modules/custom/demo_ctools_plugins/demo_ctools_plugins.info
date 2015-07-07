@@ -1,0 +1,6 @@
+name = Demo Ctools Plugins
+description = Demo Ctools Plugins for Drupal Cafe
+core = 7.x
+package = Drupal Cafe
+
+dependencies[] = node
