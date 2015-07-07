@@ -7,6 +7,7 @@ dependencies[] = demo_ctools_plugins
 dependencies[] = features
 dependencies[] = image
 dependencies[] = page_manager
+dependencies[] = panels
 dependencies[] = taxonomy
 dependencies[] = text
 features[ctools][] = page_manager:pages_default:1
