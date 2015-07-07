@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_type().
+ */
+function doc_search_ctools_plugin_type() {
+  return array(
+    'doc_search_provider' => array(
+      'use hooks' => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function doc_search_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools') {
+    return 'plugins/' . $plugin_type;
+  }
+}

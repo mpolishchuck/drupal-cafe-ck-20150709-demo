@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function doc_search_p1_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'doc_search') {
+    return 'plugins/' . $plugin_type;
+  }
+}
