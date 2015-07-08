@@ -1,0 +1,2 @@
+title = Search highlight
+alter function = doc_search_hl_alter

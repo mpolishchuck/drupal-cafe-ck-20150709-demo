@@ -36,6 +36,17 @@ function doc_search_doc_search_results_content_type_render($subtype, $conf, $pan
 
   $items = $function($conf['query']);
 
+  $plugins = ctools_get_plugins('doc_search', 'doc_search_post_alters');
+
+  if (!empty($plugins)) {
+    uasort($plugins, 'drupal_sort_weight');
+
+    foreach ($plugins as $plugin) {
+      $function = ctools_plugin_get_function($plugin, 'alter function');
+      $function($items, $conf['query']);
+    }
+  }
+
   $pane->content = theme('item_list', array(
     'type' => 'ul',
     'title' => '',

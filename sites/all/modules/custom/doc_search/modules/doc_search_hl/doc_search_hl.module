@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function doc_search_hl_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'doc_search') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+function doc_search_hl_alter(&$items, $query) {
+  foreach ($items as &$item) {
+    $item = doc_search_hl_string($item, $query);
+  }
+}
+
+function doc_search_hl_string($haystack, $needle) {
+  if (strlen($needle) <= 0) {
+    return $haystack;
+  }
+  $n = mb_strtolower($needle, 'UTF-8');
+  $h = mb_strtolower($haystack, 'UTF-8');
+  $p = mb_strpos($h, $n, 0, 'UTF-8');
+  if ($p === FALSE) {
+    return $haystack;
+  }
+  $l = mb_strlen($n, 'UTF-8');
+  $needle = mb_substr($haystack, $p, $l, 'UTF-8');
+  return mb_substr($haystack,0,$p,'UTF-8').'<b>'.$needle.'</b>'.mb_substr($haystack, $p+$l, mb_strlen($haystack, 'UTF-8')-$p-$l, 'UTF-8');
+}

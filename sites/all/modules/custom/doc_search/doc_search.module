@@ -8,6 +8,13 @@ function doc_search_ctools_plugin_type() {
     'doc_search_providers' => array(
       'use hooks' => TRUE,
     ),
+    'doc_search_post_alters' => array(
+      'use hooks' => TRUE,
+      'info file' => TRUE,
+      'defaults'  => array(
+        'weight'  => 0,
+      ),
+    ),
   );
 }
 
