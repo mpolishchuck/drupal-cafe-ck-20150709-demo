@@ -80,10 +80,12 @@ function doc_search_doc_search_form_edit_form_submit($form, &$form_state) {
 
 function _doc_search_form($form, $form_state) {
   $form['query'] = array(
-    '#title'          => t('Query string'),
-    '#type'           => 'textfield',
-    '#required'       => TRUE,
-    '#default_value'  => $form_state['values']['query'],
+    '#title'            => t('Document Number'),
+    '#type'             => 'textfield',
+    '#required'         => TRUE,
+    '#default_value'    => $form_state['values']['query'],
+    '#maxlength'        => 7,
+    '#element_validate' => array('element_validate_number'),
   );
 
   $search_db_providers = ctools_get_plugins('doc_search', 'doc_search_providers');
