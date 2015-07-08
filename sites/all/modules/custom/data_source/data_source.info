@@ -1,0 +1,4 @@
+name = Data Source
+description = Source Data for Search Demo
+core = 7.x
+package = Drupal Cafe

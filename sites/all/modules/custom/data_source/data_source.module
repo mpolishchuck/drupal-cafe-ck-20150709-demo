@@ -1,0 +1,10 @@
+<?php
+
+function data_source_init() {
+  $db_info = array(
+    'driver' => 'sqlite',
+    'database' => drupal_get_path('module', 'data_source') . '/data_source.sqlite',
+  );
+
+  Database::addConnectionInfo('data_source', 'default', $db_info);
+}
