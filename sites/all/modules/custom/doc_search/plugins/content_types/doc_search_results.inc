@@ -28,7 +28,7 @@ function doc_search_doc_search_results_content_type_render($subtype, $conf, $pan
     return $pane;
   }
 
-  $function = !empty($plugin['search function']) ? $plugin['search function'] : '';
+  $function = ctools_plugin_get_function($plugin, 'search function');
 
   if (!function_exists($function)) {
     return $pane;
