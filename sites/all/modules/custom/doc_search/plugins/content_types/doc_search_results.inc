@@ -22,7 +22,7 @@ function doc_search_doc_search_results_content_type_render($subtype, $conf, $pan
     $conf['search_db'] = ctools_context_keyword_substitute($conf['search_db'], array(), $context);
   }
 
-  $plugin = ctools_get_plugins('doc_search', 'doc_search_provider', $conf['search_db']);
+  $plugin = ctools_get_plugins('doc_search', 'doc_search_providers', $conf['search_db']);
 
   if (!$plugin) {
     return $pane;

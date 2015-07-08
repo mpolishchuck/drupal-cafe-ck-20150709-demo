@@ -5,7 +5,7 @@
  */
 function doc_search_ctools_plugin_type() {
   return array(
-    'doc_search_provider' => array(
+    'doc_search_providers' => array(
       'use hooks' => TRUE,
     ),
   );

@@ -86,7 +86,7 @@ function _doc_search_form($form, $form_state) {
     '#default_value'  => $form_state['values']['query'],
   );
 
-  $search_db_providers = ctools_get_plugins('doc_search', 'doc_search_provider');
+  $search_db_providers = ctools_get_plugins('doc_search', 'doc_search_providers');
   $search_db_options   = array();
 
   foreach ($search_db_providers as $id => $plugin) {
