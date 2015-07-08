@@ -2,3 +2,6 @@ name = Document Search Provider 2
 description = Document Search Demo (Provider 2) for Drupal Cafe
 core = 7.x
 package = Drupal Cafe: Document Search
+
+dependencies[] = data_source
+dependencies[] = transliteration

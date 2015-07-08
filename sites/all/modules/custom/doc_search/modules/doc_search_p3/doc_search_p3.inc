@@ -1,24 +1,27 @@
 <?php
 
 function doc_search_p3_search($query) {
-  $count = rand(5,8);
   $items = array();
 
-  for ($i = 0; $i < $count; $i++) {
-    $items[] = _doc_search_p3_random_string(rand(2,4)) .
-      $query . _doc_search_p3_random_string(rand(3,5));
+  db_set_active('data_source');
+
+  $results = db_select('data', 'd')
+    ->fields('d', array('id_pk', 'Year', 'CertNum', 'PIN', 'LastName', 'FirstName', 'MiddleName'))
+    ->condition('CertNum', '%' . $query . '%', 'LIKE')
+    ->condition('id_pk', 10000, '>')
+    ->condition('id_pk', 15000, '<=')
+    ->range(0, 30)
+    ->execute()
+    ->fetchAllAssoc('id_pk');
+
+  foreach ($results as $result) {
+    $items[] = $result->Year . ' ' . $result->CertNum . ' ' . $result->PIN . ' ' .
+      transliteration_get($result->LastName) . ' ' .
+      transliteration_get($result->FirstName) . ' ' .
+      transliteration_get($result->MiddleName);
   }
 
+  db_set_active();
+
   return $items;
-}
-
-function _doc_search_p3_random_string($length = 10)
-{
-  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $random_string = '';
-    for ($i = 0; $i < $length; $i++) {
-      $random_string = $characters[rand(0, strlen($characters) - 1)];
-    }
-
-    return $random_string;
 }
